@@ -3,18 +3,16 @@
 
 <head>
     <link th:rel="stylesheet" th:href="@{webjars/bootstrap/5.3.3/css/bootstrap.min.css}" />
-    <title>Homepage</title>
+    <title>Songs page</title>
 </head>
 
 <body>
     <div>
 
         <header>
-            <h1>Best of the year</h1>
+            <h1>Songs</h1>
         </header>
-        <h2 class="text-danger px-3">By <span th:text="${name}"></span> <span th:text="${surname}"></span> della classe
-            <span th:text="${class}"></span>
-        </h2>
+        <h4 class="text-dark py-5 px-3"><span th:text="${song.toString()}"></span></h4>
 
     </div>
 </body>
