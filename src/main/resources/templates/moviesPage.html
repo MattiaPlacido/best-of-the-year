@@ -3,17 +3,17 @@
 
 <head>
     <link th:rel="stylesheet" th:href="@{webjars/bootstrap/5.3.3/css/bootstrap.min.css}" />
-    <title>Songs page</title>
+    <title>Movies page</title>
 </head>
 
 <body>
     <div>
 
         <header>
-            <h1>Songs</h1>
+            <h1>Movies</h1>
         </header>
-        <div th:each="song : ${songs}" class="text-dark py-2 px-3">
-            <h4 th:text="${song.toString()}"></h4>
+        <div th:each="movie : ${movies}" class="text-dark py-2 px-3">
+            <h4 th:text="${movie.toString()}"></h4>
         </div>
 
     </div>

@@ -33,7 +33,7 @@ public Song(int id,String title,ArrayList<String> artists,String label,int durat
 
 //Costruttore vuoto per rendere la classe JavaBean
 public Song(){
-    super(10,"Default");
+    super(1,"Default");
     artistsList = new ArrayList<>();
     musicLabel = "Default";
     durationInSeconds = 10;
