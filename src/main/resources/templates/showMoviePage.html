@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <link th:replace="~{ fragments :: bootstrap}" \>
+    <link th:replace="~{ fragments :: bootstrap}">
     <title>Show a movie</title>
 </head>
 
@@ -10,9 +10,12 @@
     <div>
         <th:block th:replace="~{ fragments :: navbar}" \>
     </div>
-    <div>
+    <div th:if="${movie != null}">
         <h1 th:text="${movie.getTitle()}"></h1>
         <h4 class="text-dark py-5 px-3"><span th:text="${movie.toString()}"></span></h4>
+    </div>
+    <div th:if="${movie == null}">
+        <p class="fw-bold fs-4" th:text="'Nessun film trovato con id: ' + ${id}"></p>
     </div>
 </body>
 

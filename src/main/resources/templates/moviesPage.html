@@ -18,6 +18,7 @@
                     <td class="fs-3 text-center"><a th:href="@{/movies/{id}(id=${movie.getId()})}"
                             class="text-dark text-decoration-none" th:text="${movie.getTitle()}"></a></td>
                 </tr>
+                <p th:unless="${movies.size() > 0}" class="fs-3">Nessun film nella lista</p>
             </tbody>
         </table>
     </div>

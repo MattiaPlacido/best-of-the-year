@@ -26,7 +26,7 @@ public class MainController {
         model.addAttribute("class", 134);
         return "homePage";
     }
-    
+
     //*****************MOVIES
     @GetMapping("/movies")
     public String moviesPage(Model model) {
@@ -47,12 +47,8 @@ public class MainController {
                     break;
                 }    
             }
-
-        //Se specifiedMovie è null il film non è stato trovato
-        if (specifiedMovie == null) {
-            throw new IllegalArgumentException("Film non trovato.");
-        }
-            model.addAttribute("movie",specifiedMovie);
+        model.addAttribute("id", id);
+        model.addAttribute("movie",specifiedMovie);
 
         return "showMoviePage";
     }
@@ -65,11 +61,16 @@ public class MainController {
         listaAttori.add("Gianni");
         listaAttori.add("Gigi");
         listaAttori.add("Gino");
+        //Tengo la listaAttori uguale per semplificarmi la vita
         Movie filmProva = new Movie(2, "Titolo di prova", listaAttori, "Paolo il direttore", "Trash productions", 1, 33);
         Movie filmDefault = new Movie();
+        Movie filmBello = new Movie(3,"Film molto bello", listaAttori,"Direttore molto bravo","Compagnia di produzione costosa",2,35);
+        Movie filmBrutto = new Movie(4,"Film orribile",listaAttori,"Direttore inesperto","Compagnia di produzione scadente",3,44);
     
         listaFilm.add(filmDefault);
         listaFilm.add(filmProva);
+        listaFilm.add(filmBello);
+        listaFilm.add(filmBrutto);
 
         return listaFilm;
     }
@@ -96,14 +97,10 @@ public class MainController {
                     break;
                 }    
             }
-
-        //Se specifiedMovie è null il film non è stato trovato
-        if (specifiedSong == null) {
-            throw new IllegalArgumentException("Canzone non trovata.");
-        }
         
         model.addAttribute("song",specifiedSong);
-
+        model.addAttribute("id", id);
+        
         return "showSongPage";
     }
 
@@ -120,9 +117,13 @@ public class MainController {
         listaArtisti.add("Produttore");
         Song canzoneProva = new Song(2, "Titolo di prova", listaArtisti, "Etichetta di prova", 77);
         Song canzoneDefault = new Song();
-        
+        Song canzoneBella = new Song(3, "Canzone fighissima", listaArtisti, "Good looking records", 183);
+        Song canzoneStraziante = new Song(4,"Canzone orribile",listaArtisti,"Bad label",210);
+
         listaCanzoni.add(canzoneDefault);
         listaCanzoni.add(canzoneProva);
+        listaCanzoni.add(canzoneBella);
+        listaCanzoni.add(canzoneStraziante);
 
         return listaCanzoni;
     }
