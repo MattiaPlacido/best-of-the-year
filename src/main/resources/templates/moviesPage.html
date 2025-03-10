@@ -2,20 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/5.3.3/css/bootstrap.min.css}" />
+    <link th:replace="~{ fragments :: bootstrap}">
     <title>Movies page</title>
 </head>
 
 <body>
     <div>
-
-        <header>
-            <h1>Movies</h1>
-        </header>
-        <div th:each="movie : ${movies}" class="text-dark py-2 px-3">
-            <h4 th:text="${movie.toString()}"></h4>
-        </div>
-
+        <th:block th:replace="~{ fragments :: navbar}"></th:block>
+    </div>
+    <div class="container d-flex flex-column align-items-center">
+        <h1 class="p-5">Best Movies</h1>
+        <table class="table">
+            <tbody>
+                <tr th:each="movie : ${movies}">
+                    <td class="fs-3 text-center"><a th:href="@{/movies/{id}(id=${movie.getId()})}"
+                            class="text-dark text-decoration-none" th:text="${movie.getTitle()}"></a></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 

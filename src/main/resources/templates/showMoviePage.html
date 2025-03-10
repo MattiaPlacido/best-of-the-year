@@ -2,18 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/5.3.3/css/bootstrap.min.css}" />
-    <title>Movies page</title>
+    <link th:replace="~{ fragments :: bootstrap}" \>
+    <title>Show a movie</title>
 </head>
 
 <body>
     <div>
-
-        <header>
-            <h1 th:text="${movie.getTitle()}"></h1>
-        </header>
+        <th:block th:replace="~{ fragments :: navbar}" \>
+    </div>
+    <div>
+        <h1 th:text="${movie.getTitle()}"></h1>
         <h4 class="text-dark py-5 px-3"><span th:text="${movie.toString()}"></span></h4>
-
     </div>
 </body>
 
