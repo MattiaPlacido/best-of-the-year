@@ -1,6 +1,7 @@
 package classes;
 
 public abstract class AbstractContent {
+    
     protected int id;
     protected String title;
 

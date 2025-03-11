@@ -57,6 +57,9 @@ public int getDurationInSeconds(){
 }
 
 public void setDurationInSeconds(int duration){
+    if(durationInSeconds <= 0){
+        throw new IllegalArgumentException("La durata deve essere maggiore di zero.");
+    }
     durationInSeconds = duration;
 }
 
